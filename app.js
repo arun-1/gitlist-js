@@ -7,7 +7,7 @@
 var express = require('express');
 var app = express();
 
-var port = 80;
+var port = 8080;
 
 app.set('views', __dirname + '/app/views');
 app.set('view engine', 'jade');
@@ -62,6 +62,11 @@ app.get('/:reponame/commit/:treeish', function(req, res) {
     commitController.indexAction(req, res);
 });
 
-
+try{
 app.listen(port);
+  
+}
+catch(e){
+  console.log(e);
+}
 console.log('listen to port ' + port);
