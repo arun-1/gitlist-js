@@ -1,3 +1,5 @@
+var moment = require("moment");
+
 /**
  * Commits Controller
  *
@@ -41,10 +43,22 @@ var CommitsController = function() {
         gitRepo.init();
 
         var branches = gitRepo.getBranches();
-
+        
         gitRepo.setCurrentBranch(branch);
 
         var renderIt = function(data) {
+          
+            console.log(data.commits);
+
+            for (var dateGroup in data.commits) {
+              var list = data.commits[dateGroup];
+              for (var sha in list) {
+                var c = list[sha];
+                //c.niceDate = moment(c.date).format("D MMM YYYY");
+                c.niceDate = moment(c.date).fromNow();
+              }
+            }
+
             res.render(
                 'logView',
                 {

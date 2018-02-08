@@ -3,22 +3,23 @@ block append content
   each val, index in commits
     .card
       .card-header
-        = index
+        = 'Commits on ' + index
       .list-group.list-group-flush
         each com, treeish in val
           .list-group-item
-            a(href='/' + reponame + '/commit/' + treeish, class='pull-right btn btn-default')
-              i.material-icons="remove_red_eye"
-              = ' View ' + treeish.substr(0,7)
-            p.list-group-item-text
-              strong= com.msg
-            p.list-group-item-text
+            .d-flex.w-100.justify-content-between
+              p.list-group-item-text.mb-0
+                strong= com.msg
+              a(href='/' + reponame + '/commit/' + treeish)
+                small
+                  = '#' + treeish.substr(0,7) + '...'
+            small.list-group-item-text
               a(href='mailto:' + com.author.email)
                 = com.author.name
-              = ' authored on ' + com.date
+              = ' commited on ' + com.niceDate
     br
 
-  nav                
+  nav
     ul.pagination.justify-content-center
       li.page-item.disabled
         a.page-link(href="#", tabindex="-1")
