@@ -136,6 +136,7 @@ function GitRepo() {
     /** @ignore */
     this.getDirectoryContents = function() {
         var revision = fs.readFileSync(basePath + '/' + current.reponame + '/refs/heads/' + current.branch, 'UTF-8');
+        console.log('HOLA');
     };
 }
 

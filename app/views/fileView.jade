@@ -2,8 +2,8 @@ extend repoNavigation
 block append content
   if codemode == 'image'
     //img(src='#{fileContent}')
-    p
-      = 'Image: ' + fileContent
+    p = 'Image: ' + fileContent
   else
-    textarea(class='codeOutput', data-codemode='#{codemode}')
-      = fileContent
+    pre
+      code
+        = fileContent

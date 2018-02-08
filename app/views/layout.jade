@@ -3,6 +3,11 @@ html(lang='en')
   head
     title #{title} - GitList.js
     link(rel='stylesheet', href='/styles/min/style.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Material+Icons|Roboto:400,700|Open+Sans:400,400i,700,700i')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.css')
+    link(rel='stylesheet', href='https://highlightjs.org/static/demo/styles/github.css')
+
   body
     .navbar.navbar-scroll-top.navbar-inverse
       .navbar-inner
@@ -21,10 +26,20 @@ html(lang='en')
           = ' using '
           a(href='http://getbootstrap.com', target='_blank')= 'Twitter Bootstrap'
           = ' with '
-          a(href='http://glyphicons.com', target='_blank')= 'Glyphicons'
-    script(src='/scripts/min/jqboot.js')
-    if codemode && codemode != 'image'
-      script(src='/scripts/min/cm.js')
-      if codemode != 'null'
-        script(src='/scripts/vendor/CodeMirror/mode/#{codemode}/#{codemode}.js')
-      script(src='/scripts/cm-js.js')
+          a(href='https://material.io/icons/', target='_blank')= 'Material Icons'
+
+
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js')
+    script(src='/scripts/app.js')
+
+
+//    script(src='/scripts/min/jqboot.js')
+//    if codemode && codemode != 'image'
+//      script(src='/scripts/min/cm.js')
+//      if codemode != 'null'
+//        script(src='/scripts/vendor/CodeMirror/mode/#{codemode}/#{codemode}.js')
+//      script(src='/scripts/cm-js.js')

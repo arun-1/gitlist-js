@@ -1,12 +1,9 @@
 extend layout
 block content
-  each val, index in repos
-    .panel.panel-primary
-      .panel-heading
-        h3.panel-title
-          span.glyphicon.glyphicon-folder-open
-          = ' '
+  .card
+    ul.list-group.list-group-flush
+      each val, index in repos
+        li.list-group-item
           a(href='/' + index)
-            strong= index
-      .panel-body
-         = val
+            i.material-icons="folder_open" 
+            = ' ' + index

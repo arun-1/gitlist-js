@@ -1,5 +1,7 @@
 extend repoNavigation
 block append content
+  //-var foo="hola"
+  //h1=foo
   table.table.table-hover
     thead
       tr
@@ -7,19 +9,21 @@ block append content
         th(width="10%")='mode'
         th(width="10%")='size'
     tbody
+      //-var list = directoryContents.sort((a,b)=>{ return a.contentType > b.contentType })
       each val, index in directoryContents
         tr
           td
             if (val.contentType != 'blob' && val.contentType != 'commit')
-              span.glyphicon.glyphicon-folder-open
-              = ' '
-              a(href='/' + reponame + '/tree/' + branch + '/' + index.replace(/\//g, '%2F') + '%2F')= val.contentName
+              a(href='/' + reponame + '/tree/' + branch + '/' + index.replace(/\//g, '%2F') + '%2F')
+                <i class="material-icons">folder</i>
+                = ' '+ val.contentName
             else if (val.contentType != 'commit')
-              span.glyphicon.glyphicon-file
-              = ' '
-              a(href='/' + reponame + '/blob/' + branch + '/' + index.replace(/\//g, '%2F'))= val.contentName
+              a(href='/' + reponame + '/blob/' + branch + '/' + index.replace(/\//g, '%2F'))
+                <i class="material-icons">insert_drive_file</i>
+                = ' '+ val.contentName
             else
-              span.glyphicon.glyphicon-transfer(title=val.contentType)
-              = val.contentName
-          td=val.mode
+              <i class="material-icons">swap_horiz</i>
+              = ' ' + val.contentName
+          td
+            small=val.mode
           td=val.fileSize

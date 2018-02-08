@@ -23,7 +23,7 @@ gulp.task('codemirror', function() {
 
 gulp.task('style', function() {
     return gulp.src([
-        './app/public/scripts/vendor/bootstrap/dist/css/bootstrap.min.css',
+        //'./app/public/scripts/vendor/bootstrap/dist/css/bootstrap.min.css',
         './app/public/scripts/vendor/CodeMirror/lib/codemirror.css',
         './app/public/scripts/vendor/CodeMirror/theme/mdn-like.css',
         './app/public/styles/base.css'
