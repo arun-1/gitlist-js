@@ -1,9 +1,13 @@
 extend layout
 block content
+  h1
+    = title
   .card
-    ul.list-group.list-group-flush
+    div.list-group.list-group-flush
       each val, index in repos
-        li.list-group-item
-          a(href='/' + index)
+        a.list-group-item.list-group-item-action(href='/' + index)
+          h5
             i.material-icons="folder_open" 
             = ' ' + index
+          p
+            = val

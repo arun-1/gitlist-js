@@ -35,11 +35,12 @@ var IndexController = function() {
             var stats = fs.statSync(basePath + '/' + currentDir);
 
             if (stats && stats.isDirectory()) {
-                var description = fs.readFileSync(basePath + '/' + currentDir + '/description');
+                var description = fs.readFileSync(basePath + '/' + currentDir + '/description', 'utf8');
                 repositories[currentDir] = description;
+                console.log(description);
             }
         });
-
+        //console.log(repositories);
         res.render(
             'index',
             {

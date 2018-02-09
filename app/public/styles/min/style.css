@@ -1,7 +1,7 @@
 
 
-a > i.material-icons{
-  vertical-align: middle;
+i.material-icons{
+  vertical-align: text-bottom;
 }
 
 /* BASICS */
