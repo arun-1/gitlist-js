@@ -88,8 +88,8 @@ function GitRepo() {
      */
     this.getBranches = function() {
         if (0 === branches.length) {
-            branches.heads = fs.readdirSync(basePath + '/' + current.reponame + '/refs/heads');
-            branches.tags = fs.readdirSync(basePath + '/' + current.reponame + '/refs/tags');
+            branches.heads = fs.readdirSync(basePath + '/' + current.reponame + '/.git/refs/heads');
+            branches.tags = fs.readdirSync(basePath + '/' + current.reponame + '/.git/refs/tags');
         }
 
         return branches;

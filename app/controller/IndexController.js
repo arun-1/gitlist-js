@@ -35,7 +35,7 @@ var IndexController = function() {
             var stats = fs.statSync(basePath + '/' + currentDir);
 
             if (stats && stats.isDirectory()) {
-                var description = fs.readFileSync(basePath + '/' + currentDir + '/description', 'utf8');
+                var description = fs.readFileSync(basePath + '/' + currentDir + '/.git/description', 'utf8');
                 repositories[currentDir] = description;
                 console.log(description);
             }
